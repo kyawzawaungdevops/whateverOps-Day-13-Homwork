@@ -7,6 +7,7 @@ I updated line 29 of index.mjs like following:
 ```javascript
 const client = redis.createClient({url: `redis://${redisHost}:${redisPort}`});
 ```
+## Screenshots
 
 ![image](https://github.com/kyawzawaungdevops/whateverOps-Day-13-Homwork/assets/80774788/5ed5ce59-bf85-41b8-8842-1a0e91350b50)
 
