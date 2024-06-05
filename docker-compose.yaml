@@ -4,16 +4,32 @@ services:
   mongodb:
     container_name: mongodb_service
     image: "mongo:latest"
-  
+    networks:
+      - mynetwork
+
   redis:
     container_name: redis_service
     image: "redis:latest"
+    networks:
+      - mynetwork
 
   app:
     container_name: hello-wops
-    build:
-      context: .
+    build: 
+       context: .
+    depends_on:
+      - mongodb
+      - redis
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_HOST=mongodb
+      - MONGO_PORT=27017
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - PORT=3000
+    networks:
+      - mynetwork      
 
-
-    
-
+networks:
+  mynetwork:

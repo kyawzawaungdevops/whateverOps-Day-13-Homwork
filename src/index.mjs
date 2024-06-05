@@ -26,7 +26,7 @@ async function checkMongoConnection() {
 
 async function checkRedisConnection() {
   try {
-    const client = redis.createClient({ host: redisHost, port: redisPort });
+    const client = redis.createClient({url: `redis://${redisHost}:${redisPort}`});
     await client.connect();
     console.log("Connected to Redis successfully!");
     client.quit(); // Disconnect from Redis after successful check
