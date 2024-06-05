@@ -2,7 +2,7 @@
 
 This repository contains a Docker Compose setup for running a MongoDB, Redis, and a Node.js application. The `docker-compose.yml` file defines the services and the network required for the setup.
 
-I updated line 29 of index.mjs like following:
+I updated the line 29 of index.mjs like following:
 
 ```javascript
 const client = redis.createClient({url: `redis://${redisHost}:${redisPort}`});
